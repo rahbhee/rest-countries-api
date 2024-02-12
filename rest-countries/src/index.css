@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body{
+  font-family: 'Nunito Sans', sans-serif;
+  background-color:  hsl(0, 0%, 98%);
+}
+header{
+  box-shadow:  rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+.nav-input-div, .filter, .dropdown-content, .main-div{
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+input[type="search"]::-ms-clear,
+input[type="search"]::-ms-reveal {
+  display: none;
+}
+
+input[type="search"]::-webkit-search-clear-button,
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+.fa-magnifying-glass{
+  color: gray;
+}
+header h1{
+  font-size: 2rem;
+}
+div a{
+  margin-left: 1rem;
+}
+.dropdown-content div{
+  margin-top: .5rem;
+}
+.dropdown-content{
+ right: 1.5rem;
+ top: 1rem;
+ padding-top: .5rem;
+ padding-bottom: rem;
+}
+main img{
+  height: 8rem;
+  object-fit: fill;
+  width: 22rem;
+}
+main .img-div{
+  height: 8rem;
+}
+.main-div{
+  width: 14rem;
+}
+.details-div{
+  height: 10rem;
+}
+.black{
+  background-color:  hsl(207, 26%, 17%);
+  color: white;
+}
+.black-div{
+  background-color: hsl(209, 23%, 22%);
+}
+#black{
+  background-color:  hsl(209, 23%, 22%);
+}
+
+@media screen and (min-width: 360px) and (max-width: 640px){
+  header h1{
+    font-size: 1rem;
+  }
+  nav{
+    flex-direction: column;
+  }
+  .nav-input-div{
+    width: 20rem;
+  }
+  .filter{
+    margin-right: 9rem;
+    margin-top: .7rem;
+  }
+  .dropdown-content{
+    right: 1.5rem;
+    top: 1rem;
+  }
+}
+@media screen and (max-width: 320px){
+  .header-h1{
+    font-size: .9rem;
+  }
+  .header-div{
+    width: 17rem;
+  }
+  nav{
+    flex-direction: column;
+  }
+  .nav-input-div{
+    width: 17rem;
+  }
+  .filter{
+    width: 10rem;
+    margin-top: 1rem;
+    margin-right: 7rem;
+  }
+  .dropdown-content{
+    right: 1.5rem;
+    width: 10rem;
+    top: 1rem;
+  }
+}
