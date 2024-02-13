@@ -69,6 +69,9 @@ main .img-div{
 #black{
   background-color:  hsl(209, 23%, 22%);
 }
+.white{
+  color: black;
+}
 
 @media screen and (min-width: 360px) and (max-width: 640px){
   header h1{
