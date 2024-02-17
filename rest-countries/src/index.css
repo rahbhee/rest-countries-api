@@ -89,13 +89,11 @@ main .img-div{
 .white{
   color: black;
 }
-#turnwhite{
-  background-color: white;
-  color: black;
+.ablack{
+  background-color: hsl(207, 26%, 17%);
 }
-#turnblack{
-  background-color: hsl(209, 23%, 22%);
-  color: white;
+.awhite{
+  background-color: #fff;
 }
 .section-p{
   margin-top: 8rem;

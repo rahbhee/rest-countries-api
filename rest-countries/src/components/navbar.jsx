@@ -16,7 +16,7 @@ function NavBar({toggle, country, handleSearch, handleClickRegion, handleInputCh
 
     return(
         <nav className="flex text-sm mt-8 justify-between items-center w-4/5 m-auto">
-          <Search country={country} handleInputChange={handleInputChange} handleSearch={handleSearch}/>
+          <Search toggle={toggle} country={country} handleInputChange={handleInputChange} handleSearch={handleSearch}/>
             <div id={toggle ? "black" : "white"} className="w-44 pt-2 pb-2 pl-6 h-10 bg-white filter">
                 <button onClick={dropDown} className="flex items-center dropdown">
                 <p>Filter by Region</p>
