@@ -16,7 +16,7 @@ function MainSection({toggle, country, handleclick, backcountry, countryregion})
         }
         <main className="m-auto mt-8 w-4/5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
             {country.map((count) =>(
-             <div key={count.id} onClick={() => handleCountryClick(count)} id={toggle ? "black" : "white"} className="m-auto main-div bg-white">
+             <div key={count.id} onClick={() => handleCountryClick(count)} id={toggle ? "black" : "white"} className="m-auto h-80 main-div bg-white">
                 <div className="img-div">
                 <img className="mt-0" src={count.flags.png}/>
                 </div>
