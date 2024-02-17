@@ -6,9 +6,9 @@ function Search({toggle, country, handleSearch, handleInputChange}){
 
 
     return(
-        <div  id={toggle ? "black" : "white"}  className="w-96 px-6 h-10 bg-white flex items-center nav-input-div">
-        <i id={toggle ? "black" : "white"} className="bg-white mr-4 fa-solid fa-magnifying-glass"></i>
-        <input onChange={handleInputChange} className="border-none bg-transparent outline-none" type="search" placeholder='Search for a country...'/>
+        <div id={toggle ? "turnwhite" : "turnblack"} className="w-96 px-6 h-10 flex items-center nav-input-div">
+        <i className="mr-4 fa-solid fa-magnifying-glass"></i>
+        <input id={toggle ? "turnwhite" : "turnblack"} onChange={handleInputChange} className="border-none outline-none" type="search" placeholder='Search for a country...'/>
         </div>
     )
 }
