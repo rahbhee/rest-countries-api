@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import Search from './search';
 
 function NavBar({toggle, country, handleSearch, handleClickRegion, handleInputChange}){

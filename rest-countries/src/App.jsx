@@ -1,28 +1,52 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import './App.css';
 import Header from "./components/header";
 import NavBar from "./components/navbar";
+import Search from './components/search';
 import MainSection from './components/mainartcle';
 import CountryInfo from './components/countryinfo';
 
 function App() {
 
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(() => {
+  const savedTheme = localStorage.getItem("theme");
+  return savedTheme === "dark";
+});
+
   const [country, setCountry] = useState([])
   const [searchData, setSearchData] = useState(country)
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useState('');
   const [countryInfo, setCountryInfo] = useState(null)
   const [countryRegion, setCountryRegion] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+  if (toggle) {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.add("light");
+    localStorage.setItem("theme", "light");
+  }
+}, [toggle]);
 
     useEffect(() =>{
-      fetch('https://restcountries.com/v3.1/all')
+      setLoading(false)
+
+      fetch('https://restcountries.com/v3.1/all?fields=name,flags,region,capital,continents,population')
       .then((res) =>{
           return res.json();
       })
       .then((data) =>{
           setCountry(data)
           setSearchData(data);
-      })
+          setLoading(false)
+      }).catch((error) => {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      });
   }, [])
 
   const handleSearch  = (searchword) =>{
@@ -71,8 +95,8 @@ const mainDisplay = () => {
   )}else{
     return (<>
      <Header toggle={toggle} setToggle={setToggle}/>
-    <NavBar handleClickRegion={handleCountryRegion} toggle={toggle} setToggle={setToggle} handleInputChange={handleInputChange} handleSearch={handleSearch}/>
-    <MainSection handleclick={handleClickCountry} toggle={toggle} setToggle={setToggle} country={searchData} />
+    <NavBar handleClickRegion={handleCountryRegion} toggle={toggle} setToggle={setToggle} handleInputChange={handleInputChange} handleSearch={handleSearch}  searchTerm={searchTerm}/>
+    <MainSection  loading={loading} handleclick={handleClickCountry} toggle={toggle} setToggle={setToggle} country={searchData} />
     </>)
   }
 }

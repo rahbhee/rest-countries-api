@@ -1,6 +1,6 @@
 import React from "react";
 
-function MainSection({toggle, country, handleclick, backcountry, countryregion}){
+function MainSection({toggle, loading, country, handleclick, backcountry, countryregion}){
 
     const handleCountryClick = (selectedCountry) => {
         handleclick(selectedCountry)
